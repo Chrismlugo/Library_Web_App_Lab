@@ -1,5 +1,7 @@
 package models;
 
+import javax.persistence.*;
+
 public class Book {
     private int id;
     private String title;
@@ -15,6 +17,9 @@ public class Book {
         this.currentBorrower = currentBorrower;
     }
 
+    @Id
+    @GeneratedValue
+    @Column(name = "id")
     public int getId() {
         return id;
     }
@@ -23,6 +28,7 @@ public class Book {
         this.id = id;
     }
 
+    @Column(name="title")
     public String getTitle() {
         return title;
     }
@@ -31,6 +37,7 @@ public class Book {
         this.title = title;
     }
 
+    @Column(name="author")
     public String getAuthor() {
         return author;
     }
@@ -39,6 +46,7 @@ public class Book {
         this.author = author;
     }
 
+    @Column(name="on_loan")
     public Boolean getOnLoan() {
         return onLoan;
     }
@@ -47,6 +55,8 @@ public class Book {
         this.onLoan = onLoan;
     }
 
+    @ManyToOne(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
+    @JoinColumn(name = "borrower_id", nullable = false)
     public Borrower getCurrentBorrower() {
         return currentBorrower;
     }
