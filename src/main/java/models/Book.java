@@ -10,13 +10,15 @@ public class Book {
     private String author;
     private Boolean onLoan;
     private Borrower currentBorrower;
+    private Library currentLibrary;
 
-    public Book(int id, String title, String author, Boolean onLoan, Borrower currentBorrower) {
+    public Book(int id, String title, String author, Boolean onLoan, Borrower currentBorrower, Library currentLibrary) {
         this.id = id;
         this.title = title;
         this.author = author;
         this.onLoan = onLoan;
         this.currentBorrower = currentBorrower;
+        this.currentLibrary = currentLibrary;
     }
 
     @Id
@@ -57,7 +59,7 @@ public class Book {
         this.onLoan = onLoan;
     }
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "borrower_id", nullable = false)
     public Borrower getCurrentBorrower() {
         return currentBorrower;
@@ -65,5 +67,15 @@ public class Book {
 
     public void setCurrentBorrower(Borrower currentBorrower) {
         this.currentBorrower = currentBorrower;
+    }
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "library_id", nullable = false)
+    public Library getCurrentLibrary() {
+        return currentLibrary;
+    }
+
+    public void setCurrentLibrary(Library currentLibrary) {
+        this.currentLibrary = currentLibrary;
     }
 }
