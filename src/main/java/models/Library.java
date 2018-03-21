@@ -9,7 +9,6 @@ import java.util.List;
 @Entity
 @Table(name="libraries")
 public class Library {
-
     private int id;
     private String name;
     private List<Book> books;
@@ -34,6 +33,7 @@ public class Library {
     }
 
     @Column(name="name")
+
     public String getName() {
         return name;
     }

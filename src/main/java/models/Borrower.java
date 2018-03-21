@@ -29,7 +29,6 @@ public class Borrower {
     }
 
     @Column(name="name")
-
     public String getName() {
         return name;
     }
