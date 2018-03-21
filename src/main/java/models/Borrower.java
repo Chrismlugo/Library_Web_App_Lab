@@ -3,6 +3,7 @@ package models;
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
+
 @Entity
 @Table(name="borrowers")
 public class Borrower {
@@ -28,6 +29,7 @@ public class Borrower {
     }
 
     @Column(name="name")
+
     public String getName() {
         return name;
     }
