@@ -11,4 +11,28 @@ public class Borrower {
         this.name = name;
 
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Set<Book> getBorrowedItems() {
+        return borrowedItems;
+    }
+
+    public void setBorrowedItems(Set<Book> borrowedItems) {
+        this.borrowedItems = borrowedItems;
+    }
 }
